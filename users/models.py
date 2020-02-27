@@ -13,9 +13,9 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     # Parent function that we making to add our own function
-    def save(self):
+    def save(self, *args, **kwargs):
         # Saving image thats uploaded
-        super().save()
+        super(Profile, self).save(*args, **kwargs)
 
         # Grabbing the image that was just saved
         img = Image.open(self.image.path)
