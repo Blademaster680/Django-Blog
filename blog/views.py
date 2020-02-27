@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -10,6 +10,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+from .forms import PostCreateForm, PostUpdateForm
 
 # Create your views here.
 posts = [
@@ -73,7 +74,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    form_class = PostCreateForm
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -88,7 +89,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    form_class = PostUpdateForm
 
     def form_valid(self, form):
         form.instance.author = self.request.user
