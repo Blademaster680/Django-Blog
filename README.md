@@ -1,4 +1,6 @@
 # Django-Blog
+## Description
+This is a project I have made following a tutorial on youtube that Corey Schafer made. It went more into the user creation and profiles than your typical "Django-Blog" Tutorial. So I decided to follow it and this is what I have created. I will be adding more features to it as I continue to advance through my python career.
 
 ## How to install
  
