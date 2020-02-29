@@ -1,6 +1,6 @@
 # Django-Blog
 
-# How to install
+## How to install
  
 Clone This Project (Make Sure You Have Git Installed)
 ```
